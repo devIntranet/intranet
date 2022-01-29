@@ -141,11 +141,13 @@
       <!-- </tbody> -->
     </table>
     <script type="text/javascript" src="/js/filter.js"></script>
+    @if($programy->count() > 10)
     <form method="POST" action="{{ route('programy.add') }}">
         @csrf
         <button type="submit" class="devButton">
             {{ __('Nowy') }}
         </button>
       </form>
+    @endif
   </div>
 @endsection

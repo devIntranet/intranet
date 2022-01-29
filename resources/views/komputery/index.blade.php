@@ -185,12 +185,14 @@
       <!-- </tbody> -->
     </table>
     <script type="text/javascript" src="/js/filter.js"></script>
+    @if($komputery->count() > 10)
     <form method="POST" action="{{ route('komputery.addStep1') }}">
         @csrf
         <button type="submit" class="devButton">
             {{ __('Nowy') }}
         </button>
       </form>
+    @endif
   </div>
   
 @endsection

@@ -152,11 +152,13 @@
       <!-- </tbody> -->
     </table>
     <script type="text/javascript" src="/js/filter.js"></script>
+    @if($upsy->count() > 10)
     <form method="POST" action="{{ route('upsy.add') }}">
         @csrf
         <button type="submit" class="devButton">
             {{ __('Nowy') }}
         </button>
       </form>
+    @endif
   </div>
 @endsection

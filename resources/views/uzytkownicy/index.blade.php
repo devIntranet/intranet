@@ -132,13 +132,15 @@
         @endforeach
       <!-- </tbody> -->
     </table>
+    @if($uzytkownicy->count() > 10)
     <script type="text/javascript" src="/js/filter.js"></script>
-    <form method="POST" action="{{ route('urzadzenia.add') }}">
+    <form method="POST" action="{{ route('uzytkownicy.add') }}">
         @csrf
         <button type="submit" class="devButton">
-            {{ __('Nowe') }}
+            {{ __('Nowy') }}
         </button>
       </form>
+    @endif
   </div>
   
 @endsection

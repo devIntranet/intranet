@@ -152,11 +152,13 @@
       <!-- </tbody> -->
     </table>
     <script type="text/javascript" src="/js/filter.js"></script>
+    @if($monitory->count() > 10)
     <form method="POST" action="{{ route('monitory.add') }}">
         @csrf
         <button type="submit" class="devButton">
             {{ __('Nowy') }}
         </button>
       </form>
+    @endif
   </div>
 @endsection
