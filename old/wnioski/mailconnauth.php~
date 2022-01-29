@@ -1,0 +1,13 @@
+<?php
+$mail = new PHPMailer();
+
+$mail->PluginDir = "phpmailer/";
+$mail->From = "idp@rpwik.tychy.pl"; //adres naszego konta
+$mail->FromName = "System Obs³ugi Wniosków";//nag³ówek From
+$mail->Host = "192.168.1.94";//adres serwera SMTP
+$mail->Mailer = "smtp";
+$mail->Username = "idp";//nazwa u¿ytkownika
+$mail->Password = "";//nasze has³o do konta SMTP
+$mail->SMTPAuth = false;
+$mail->SetLanguage("pl", "phpmailer/language/");
+?>

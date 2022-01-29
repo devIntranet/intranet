@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<script type="text/javascript">
+function checkAll(checkbox, theCommonNodeName) {
+theCommonNodeName = theCommonNodeName.toLowerCase();
+var theCommonNode = checkbox.parentNode;
+while(theCommonNode.nodeName.toLowerCase() != theCommonNodeName && theCommonNode != document) {
+theCommonNode = theCommonNode.parentNode;
+}
+
+if(theCommonNode.nodeName.toLowerCase() != theCommonNodeName) {
+alert("Common parent node could not be found");
+return;
+}
+
+var inputs = theCommonNode.getElementsByTagName("input");
+for(var i=0; inputs[i]; i++) {
+if(inputs[i].type == "checkbox") {
+inputs[i].checked = checkbox.checked;
+}
+}
+}
+</script>
+<style type="text/css">
+body {
+font-family: "Courier New", Courier, mono;
+font-size: 12px;
+color: #333333;
+}
+
+h1 {
+color: #000033;
+font-size: 14px;
+font-weight: bold;
+}
+
+hr {
+border: 1px solid black;
+width: 400px;
+}
+</style>
+</head>
+
+<body>
+<h1>Test 1</h1>
+<form name="frmTest1">
+Check all in this form:<input type="checkbox" name="chkAll" onclick="checkAll(this, 'form');">
+<br><br>
+checkbox1:<input type="checkbox" name="chk1"><br>
+checkbox2:<input type="checkbox" name="chk2"><br>
+checkbox3:<input type="checkbox" name="chk3"><br>
+</form>
+<hr>
+
+<h1>Test 2</h1>
+<form name="frmTest2">
+<table border="1" cellspacing="1" cellpadding="2">
+<tr><td>Check all in this table:<input type="checkbox" name="chkAll" onclick="checkAll(this, 'table');"></td></tr>
+<tr><td>checkbox1:<input type="checkbox" name="chk1"></td></tr>
+<tr><td>checkbox2:<input type="checkbox" name="chk2"></td></tr>
+<tr><td>checkbox3:<input type="checkbox" name="chk3"></td></tr>
+</table>
+</form>
+<hr>
+
+<h1>Test 3</h1>
+<form name="frmTest3">
+<table border="1" cellspacing="1" cellpadding="2">
+<tr>
+<td>Check all in this row:<input type="checkbox" name="chkAll" onclick="checkAll(this, 'tr');"></td>
+<td>checkbox1:<input type="checkbox" name="chk1"></td>
+<td>checkbox2:<input type="checkbox" name="chk2"></td>
+<td>checkbox3:<input type="checkbox" name="chk3"></td>
+</tr>
+<tr>
+<td>Check all in this row:<input type="checkbox" name="chkAll" onclick="checkAll(this, 'tr');"></td>
+<td>checkbox4:<input type="checkbox" name="chk4"></td>
+<td>checkbox5:<input type="checkbox" name="chk5"></td>
+<td>checkbox6:<input type="checkbox" name="chk6"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

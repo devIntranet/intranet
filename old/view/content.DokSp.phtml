@@ -1,0 +1,28 @@
+<div id="PASEK_TOP">
+<div class="menuBaza1">
+<a href=?m=bz&mt=usr class="m_uzytkownicy"></a>
+<a href=?m=bz&mt=dzl class="m_dzialy"></a>
+<a href=?m=bz&mt=kmp class="m_komputery"></a>
+<a href=?m=bz&mt=mon class="m_monitory"></a>
+<a href=?m=bz&mt=ups class="m_upsy"></a>
+</div>
+<div class="menuBaza2">
+<a href=?m=bz&mt=drk class="m_drukskan"></a>
+<a href=?m=bz&mt=prg class="m_programy"></a>
+<a href=?m=bz&mt=szk class="m_szukacz"></a>
+<a href=?m=bz&mt=hst class="m_historia"></a>
+<a href="javascript: history.back()" class="m_wroc"></a>
+</div>
+</div>												
+<div id="TRESC">
+<?php
+if ($handle = opendir('//backupsrv/dokumenty')) {
+    echo "Directory handle: $handle\n";
+    echo "Entries:\n";
+
+    /* This is the correct way to loop over the directory. */
+    while (false !== ($entry = readdir($handle))) {
+        echo "$entry\n";
+    }
+}
+?>

@@ -1,0 +1,10 @@
+[18-Feb-2021 12:32:54 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in C:\inetpub\intranet\vendor\laravel\framework\src\Illuminate\Database\Grammar.php on line 97
+[18-Feb-2021 12:33:04 Europe/Warsaw] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in C:\inetpub\intranet\vendor\laravel\framework\src\Illuminate\Database\Query\Grammars\SqlServerGrammar.php on line 436
+[17-May-2021 13:45:15 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ''nazwisko] = "JURKA";' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in C:\inetpub\intranet\public\test.php on line 4
+[17-May-2021 13:45:26 Europe/Warsaw] PHP Notice:  Undefined offset: 0 in C:\inetpub\intranet\public\test.php on line 6
+[17-May-2021 13:49:43 Europe/Warsaw] PHP Notice:  Array to string conversion in C:\inetpub\intranet\public\test.php on line 6
+[17-May-2021 13:51:24 Europe/Warsaw] PHP Notice:  Undefined offset: 0 in C:\inetpub\intranet\public\test.php on line 7
+[17-May-2021 13:57:17 Europe/Warsaw] PHP Notice:  Undefined offset: 0 in C:\inetpub\intranet\public\test.php on line 7
+[17-May-2021 13:57:40 Europe/Warsaw] PHP Notice:  Undefined offset: 1 in C:\inetpub\intranet\public\test.php on line 7
+[17-May-2021 13:58:07 Europe/Warsaw] PHP Parse error:  syntax error, unexpected ',' in C:\inetpub\intranet\public\test.php on line 6
+[28-Jun-2021 11:34:18 Europe/Warsaw] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in C:\inetpub\intranet\app\Http\Controllers\WniosekController.php on line 33

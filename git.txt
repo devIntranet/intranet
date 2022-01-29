@@ -1,0 +1,19 @@
+git clone -> klonuje repozytorium z linku
+git init -> inicjuje repozytorium dla bieżącego folderu
+git add -> dodaje wskazany plik/i do indeksu repozytorium (git add --all !UWAGA!)
+git branch -> listuje branche (-a wraz z remote)
+git branch "nazwa" -> tworzy brancha o podanej nazwie
+git status -> listuje zmienione pliki od ostatniego commita
+git commit -> commituje dodane poprzednią komendą pliki do repo 
+git commit -m "tytuł" -> commit z tutyłem
+git commit -am "tytuł" -> dodaje w trybie a tylko zmienione pliki, przełącznik m pozwala dodać tytuł
+git remote add origin github.com/username/new_repo -> dodaje lokalnie wpis o zdalnym repo
+git push -u origin master -> wypycha repo do remote'a (github.com)
+git checkout [nazwa brancha] -> przełącza do innego brancha
+git checkout -b "nowy branch" -> tworzy nowy branch
+git checkout - -> przełącza na poprzedni branch na którym pracowaliśmy
+git checkout nazwa_pliku -> revert wybranego pliku
+git reset -- hard -> cofnie cały branch do poprzedniego commita
+git fetch -> zaczytuje stan remot repo
+git pull -> zaciąga wszystkie commity z repo remote
+git merge "nazwa branchu" - scala (dołącza do gałęzi na której jest brancha który jest wskazywany)

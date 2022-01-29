@@ -1,0 +1,52 @@
+<?php
+//phpinfo();
+
+require("phpmailer/class.phpmailer.php");
+require("mailconnauth.php");
+
+$mail->IsHTML(true);
+$mail->Subject = "Wniosek bez akceptacji";//temat maila
+
+// w zmienn± $text_body wpisujemy tre¶æ maila
+$text_body = "Zwróci³e¶ do poprawy wniosek o dostêp do danych osobowych z³o¿ony przez $aduzytkownik2 <br>";
+$text_body .= "dla pracownika $imie $nazwisko opatruj±c go uwag±: <br><br>";
+$text_body .= "<i>$uwagawn.</i>";
+
+
+$mail->Body = $text_body;
+// adresatów dodajemy poprzez metode 'AddAddress'
+//$mail->AddAddress("darekm@rpwik.tychy.pl","Dzia³ NI");
+$mail->AddAddress("informatyka@rpwik.tychy.pl","Dzia³ NI");
+
+if(!$mail->Send())
+echo "B³±d podczas wysy³ania powiadomienia <br>";
+echo $mail->ErrorInfo."<br>";
+
+
+// Clear all addresses and attachments
+$mail->ClearAddresses();
+$mail->ClearAttachments();
+//echo "Powiadomienie wys³ano <br>";
+
+
+// w zmienn± $text_body wpisujemy tre¶æ maila
+$text_body = "Dzia³ Informatyki nie zaakceptowa³ z³o¿onego wniosku o dostêpu do danych osobowych<br>";
+$text_body .= "dla pracownika $imie $nazwisko opatruj±c go uwag±:<br><br>";
+$text_body .= "<i>$uwagawn</i>";
+
+
+$mail->Body = $text_body;
+// adresatów dodajemy poprzez metode 'AddAddress'
+//$mail->AddAddress("darekm@rpwik.tychy.pl","Dzia³ NI");
+$mail->AddAddress($aduzytkownikmail2, $aduzytkownik2);
+
+if(!$mail->Send())
+echo "B³±d podczas wysy³ania powiadomienia <br>";
+echo $mail->ErrorInfo."<br>";
+
+// Clear all addresses and attachments
+$mail->ClearAddresses();
+$mail->ClearAttachments();
+//echo "Powiadomienie wys³ano <br>";
+
+?>

@@ -1,0 +1,12 @@
+[07-Apr-2021 10:14:33 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\export.php on line 13
+[07-Apr-2021 10:14:34 Europe/Warsaw] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1434
+[07-Apr-2021 10:14:34 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1219
+[07-Apr-2021 10:24:42 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\export.php on line 13
+[07-Apr-2021 10:24:43 Europe/Warsaw] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1434
+[07-Apr-2021 10:24:43 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1219
+[07-Apr-2021 10:35:48 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\export.php on line 13
+[07-Apr-2021 10:35:48 Europe/Warsaw] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1434
+[07-Apr-2021 10:35:48 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1219
+[10-May-2021 09:22:43 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\export.php on line 13
+[10-May-2021 09:22:44 Europe/Warsaw] PHP Warning:  preg_replace(): The /e modifier is no longer supported, use preg_replace_callback instead in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1434
+[10-May-2021 09:22:44 Europe/Warsaw] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in C:\inetpub\intranet\public\sql\PHPMailer-FE_v4.1\class.phpmailer.php on line 1219

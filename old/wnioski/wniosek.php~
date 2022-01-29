@@ -1,0 +1,438 @@
+<?
+session_start();
+//error_reporting(E_ALL);
+
+$ldapsrv="192.168.1.39";
+$d=$_POST['d'];
+$dopoprawy=$_POST['dopoprawy'];
+$uwagawn=$_POST['uwagawn'];
+$idwnpost=$_POST['idwnpost'];
+$imie=$_POST['imie'];
+$nazwisko=$_POST['nazwisko'];
+$datado=$_POST['datado'];
+$loginmod=$_POST['loginmod'];
+$haslomod=$_POST['haslomod'];
+$zakonczwniosek=$_POST['zakonczwniosek'];
+$odwwn=$_POST['odwwn'];
+$idpok=$_POST['idpok'];
+$idzb=$_POST['idzb'];
+$iddz=$_POST['iddz'];
+$jakidzial=$_POST['jakidzial'];
+$nazwazaspap=$_POST['nazwazaspap'];
+$fullzaspap=$_POST['fullzaspap'];
+$fullsysmod=$_POST['fullsysmod'];
+$nazwazb=$_POST['nazwazb'];
+$skrnazwazb=$_POST['skrnazwazb'];
+$editzb=$_POST['editzb'];
+$nazwasys=$_POST['nazwasys'];
+$editsys=$_POST['editsys'];
+$nazwamod=$_POST['nazwamod'];
+$odczyt_mod=$_POST['odczyt_mod'];
+$wprowadzanie_mod=$_POST['wprowadzanie_mod'];
+$modyfikacja_mod=$_POST['modyfikacja_mod'];
+$usuwanie_mod=$_POST['usuwanie_mod'];
+$bezograniczen_mod=$_POST['bezograniczen_mod'];
+$editmod=$_POST['editmod'];
+$insertnewuser=$_POST['insertnewuser'];
+$uzytkownik=$_POST['uzytkownik'];
+$sendmailcheckbox=$_POST['sendmailcheckbox'];
+$stanowisko_select=$_POST['stanowisko_select'];
+$stnamepost=$_post['stnamepost'];
+$stnamesubmit=$_post['stnamesubmit'];
+
+
+$det=$_GET['det'];
+$ddet=$_GET['ddet'];
+$idwn=$_GET['idwn'];
+$idzaspap=$_GET['idzaspap'];
+$d_add=$_GET['d_add'];
+$d_delete=$_GET['d_delete'];
+$dok=$_GET['dok'];
+$odw_up=$_GET['odw_up'];
+$sort=$_GET['sort'];
+$set=$_GET['set'];
+$idzbget=$_GET['idzbget'];
+$idsysget=$_GET['idsysget'];
+$idmodget=$_GET['idmodget'];
+$popdate=$_GET['popdate'];
+$stget_del=$_GET['stget_del'];
+$stget_add=$_GET['stget_add'];
+
+$status[1] = "Oczekuje na NI";
+$status[2] = "Oczekuje na NK";
+$status[3] = "Oczekuje na zmianê";
+$status[4] = "Poprawiony, oczekuje na NI";
+$status[5] = "Oczekuje na akceptacje";
+$status[9] = "Wniosek zakoñczony";
+$status[12] = "W trakcie odwo³ania";
+$status[10] = "Oczekuje na odwo³anie";
+$status[11] = "Upowa¿nienie odwo³ane";
+
+require("wniosek.funkcje.php");
+
+echo "
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-2'>
+<title>
+Wnioski- test
+</title>
+<link rel=stylesheet type=text/css href=/Strona/style.css>
+<style type='text/css'>
+.verticaltext{
+font: bold 13px Arial;
+position: absolute;
+right: 3px;
+top: 20px;
+width: 15px;
+writing-mode: tb-rl;
+}
+table.dot {
+	border-width: 1px;
+	border-spacing: 0px;
+    border-collapse: collapse;
+	border-style: dotted;
+	border-color: #000000;
+	}
+td.dot {
+   text-align: left;
+   font-size: 11px;
+   font-family: 'Times new Roman', arial, sans-serif;
+   border: 1px solid black;
+   border-style: dotted;
+   }
+td.dot_def {
+   text-align: left;
+   font-size: 11px;
+   font-family: 'Times new Roman', arial, sans-serif;
+   border: 1px solid black;
+   border-style: dotted;
+   background-color: #fdb675;
+   }
+tr.topdot {
+   text-align: left;
+   font-size: 20px;
+   font-family: 'Times new Roman', arial, sans-serif;
+   border: 1px solid black;
+   border-style: dotted;
+   }
+td.topdot {
+   text-align: left;
+   font-size: 15px;
+   font-family: 'Times new Roman', arial, sans-serif;
+   #border: 1px solid black;
+   #border-style: dotted;
+   }
+TR.wn_top {
+	font-weight: bold;
+	font-size: 30px;
+	}
+body {background-image: url(/Strona/tlo4.jpg); background-attachment:fixed; background-position: top left}
+</style>
+<script type=\"text/javascript\">
+function sprawdz_addwn() {
+var wiadomosc = \"\"; 
+if (document.addwn.nazwisko.value.length<1) {
+wiadomosc = wiadomosc + ' - Nazwisko';
+}
+if (document.addwn.imie.value.length<1) {
+wiadomosc = wiadomosc + ' - Imiê';
+}
+
+if (wiadomosc.length<1) {
+document.addwn.submit(); 
+return true;
+}
+else {
+alert('Brak danych z pól: '+ wiadomosc);
+} 
+}
+
+function sprawdz_edzaspapform() {
+var wiadomosc = \"\"; 
+if (document.edzaspapform.nazwazaspap.value.length<1) {
+wiadomosc = wiadomosc + ' - Nazwa';
+}
+
+if (wiadomosc.length<1) {
+document.edzaspapform.submit(); 
+return true;
+}
+else {
+alert('Brak danych z pola: '+ wiadomosc);
+} 
+}
+
+function sprawdz_addzaspapform() {
+var wiadomosc = \"\"; 
+if (document.addzaspapform.nazwazaspap.value.length<1) {
+wiadomosc = wiadomosc + ' - Nazwa';
+}
+
+if (wiadomosc.length<1) {
+document.addzaspapform.submit(); 
+return true;
+}
+else {
+alert('Brak danych z pola: '+ wiadomosc);
+} 
+}
+</script>
+<script type=\"text/javascript\">
+function checkAll(checkbox, theCommonNodeName) {
+theCommonNodeName = theCommonNodeName.toLowerCase();
+var theCommonNode = checkbox.parentNode;
+while(theCommonNode.nodeName.toLowerCase() != theCommonNodeName && theCommonNode != document) {
+theCommonNode = theCommonNode.parentNode;
+}
+
+if(theCommonNode.nodeName.toLowerCase() != theCommonNodeName) {
+alert(\"Common parent node could not be found\");
+return;
+}
+
+var inputs = theCommonNode.getElementsByTagName(\"input\");
+for(var i=0; inputs[i]; i++) {
+if(inputs[i].type == \"checkbox\") {
+inputs[i].checked = checkbox.checked;
+}
+}
+}
+</script>
+<script type=\"text/javascript\" src=\"calendarDateInput.js\">
+
+/***********************************************
+
+* Jason's Date Input Calendar- By Jason Moon http://calendar.moonscript.com/dateinput.cfm
+
+* Script featured on and available at http://www.dynamicdrive.com
+
+* Keep this notice intact for use.
+
+***********************************************/
+
+</script>
+
+</head>
+<body>
+";
+
+$remote_user = $_SERVER['REMOTE_USER'];
+list($domena, $user) = explode("\\", $remote_user);
+
+$ldaprdn  = 'admin';     // ldap rdn or dn
+$ldappass = 'c0k0lwiek';  // associated password
+// connect to ldap server
+$ldapconn = ldap_connect($ldapsrv)
+    or die("Could not connect to LDAP server.");
+ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION,3);
+ldap_set_option($ldapconn, LDAP_OPT_REFERRALS,0);
+if ($ldapconn) 
+	{
+    // binding to ldap server
+    $ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
+	$base_dn = "dc=rpwik, dc=tychy, dc=pl";
+	$filter = "(sAMAccountName=$user)";
+	$justthese = array("department", "directreports", "title", "displayname", "mail");
+	$read = ldap_search($ldapconn, $base_dn, $filter, $justthese);
+	$entry = ldap_get_entries($ldapconn, $read);
+	#echo var_dump($entry);
+	$loginad=$row["loginad_u"];
+	$filtr = "(sAMAccountName=$user)";
+	$wyjatki = array("department", "title", "sAMAccountName", "displayname", "mail");
+	$czytaj = ldap_search($ldapconn, $base_dn, $filtr, $wyjatki);
+	$wpis = ldap_get_entries($ldapconn, $czytaj);
+	$aduzytkownik = $wpis[0]['displayname'][0];
+	$aduzytkownikmail = $wpis[0]['mail'][0];
+	$isologin = $wpis[0]['displayname'][0];
+	$aduzytkownik = iconv('UTF-8', 'ISO-8859-2', $isologin);
+	echo "U¿ytkownik: " .$aduzytkownik. "<BR>";
+	echo "Dzia³: " .$wpis[0]['department'][0]. "<BR>";
+	$department = $wpis[0]['department'][0];
+	echo "Login: $user<BR>";
+	$sprawdz_usera_connect=mysql_connect("localhost", "root", "pwtychy");
+	mysql_query("SET NAMES latin2");
+	$sprawdz_usera=mysql_db_query("ewidencja", "select uzytkownicy.id_u, uzytkownicy.loginad_u, uzytkownicy.id_dz, dzialy.symbol_d 
+	from uzytkownicy
+	left join dzialy
+	on uzytkownicy.id_dz = dzialy.id_dz
+	where uzytkownicy.loginad_u = '$user'");
+	$ile_sprawdz_usera=mysql_num_rows($sprawdz_usera);
+if ($ile_sprawdz_usera != 1)
+	{
+	echo "<center>Brak twojego u¿ytkownika w bazie danych.<br>
+		Skontaktuj siê z dzia³em Informatyki.</center>
+		";
+		}
+if  ($ile_sprawdz_usera == 1)
+	{
+	$user_dzial=mysql_fetch_array($sprawdz_usera);
+	$dzial_ad=$wpis[0][department][0];		
+	if (($entry[0]['directreports'][0]) && ($wpis[0]['department'][0] == NK))
+		{
+		$wniosek_user='pnk';
+		}
+	if (($entry[0]['directreports'][0]) && ($wpis[0]['department'][0] != NK) && ($wpis[0]['department'][0] != NI))
+		{
+		$wniosek_user='kxx';
+		}
+	if ((!$entry[0]['directreports'][0]) && ($wpis[0]['department'][0] == NK))
+		{
+		$wniosek_user='pnk';
+		}
+	if ((!$entry[0]['directreports'][0]) && ($wpis[0]['department'][0] != NK) && ($wpis[0]['department'][0] != NI))
+		{
+		$wniosek_user='pxx';
+		}
+	if (($entry[0]['directreports'][0]) && ($wpis[0]['department'][0] == NI))
+		{
+		$wniosek_user='ni';
+		}
+	if ((!$entry[0]['directreports'][0]) && ($wpis[0]['department'][0] == NI))
+		{
+		$wniosek_user='ni';
+		}
+	echo "Profil: $wniosek_user";
+	
+		if ($wniosek_user == ni)
+			{
+			$menu = "
+			<table>
+			<tr>
+			<td>
+			<form method=post action=wniosek.php>
+			<input type=hidden name=d value=1>
+			<input type=submit name=go value='z³ó¼ wniosek'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=7>
+			<input type=submit name=wybierz value='nowe'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=4>
+			<input type=submit name=wybierz value='otwarte'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=3>
+			<input type=submit name=wybierz value='zakoñczone wnioski'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=6>
+			<input type=submit name=wybierz value='odwo³ane wnioski'>
+			</form>
+			</td>
+			<td>
+			<form method=post action=wniosek.php>
+			<input type=hidden name=d value=2>
+			<input type=submit name=wroc value='wszystkie wnioski'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=5>
+			<input type=submit name=wybierz value='zasoby papierowe'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=8>
+			<input type=submit name=wybierz value='systemy i modu³y'>
+			</form>
+			</td>
+			</tr>
+			</table>
+			";
+			require('wniosek.det.ni.php');
+			}
+		if ($wniosek_user == kxx)
+			{
+			$menu = "
+			<table>
+			<tr>
+			<td>
+			<form method=post action=wniosek.php>
+			<input type=hidden name=d value=1>
+			<input type=submit name=go value='z³ó¼ wniosek'>
+			</form>
+			</td>
+			<td>
+			<form method=post action=wniosek.php>
+			<input type=hidden name=d value=2>
+			<input type=submit name=wroc value='moje wnioski'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=5>
+			<input type=submit name=wybierz value='zasoby papierowe'>
+			</form>
+			</td>
+			</tr>
+			</table>
+			";
+			require('wniosek.det.kxx.php');
+			}
+		if ($wniosek_user == pnk)
+			{
+			$menu = "
+			<table>
+			<tr>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=1>
+			<input type=submit name=wybierz value='nowe'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=3>
+			<input type=submit name=wybierz value='zakoñczone wnioski'>
+			</form>
+			</td>
+			<td>
+			</form>
+			<form action=wniosek.php method=post>
+			<input type=hidden name=d value=6>
+			<input type=submit name=wybierz value='odwo³ane wnioski'>
+			</form>
+			</td>
+			<td>
+			<form method=post action=wniosek.php>
+			<input type=hidden name=d value=4>
+			<input type=submit name=wroc value='wszystkie wnioski'>
+			</form>
+			</td>
+			</tr>
+			</table>
+			";
+			require('wniosek.det.pnk.php');
+			}
+		if ($wniosek_user == pxx)
+			{
+			require('wniosek_pxx.inc.php');
+			}
+		if ($wniosek_user == ni)
+			{
+			#require('wniosek_ni.inc.php');
+			}
+	}
+
+}
+?>

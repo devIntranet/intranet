@@ -1,0 +1,251 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed&subset=latin,latin-ext);
+div::-webkit-scrollbar {
+    width: 15px;
+}
+
+div::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 20px;
+}
+
+div::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}​
+
+@charset "iso-8859-2";
+/* CSS Document */
+
+@font-face {
+	font-family: tahoma;
+	src: url('../img/tahoma.ttf') format("truetype");
+}
+html, body {
+	background-color: #fff;
+	color: #000;
+	margin: 0;
+	padding: 0;
+}
+
+#main {
+	margin:0 auto;
+	width: 1050px;
+}
+
+#TOP {
+	width: 1024px;
+	height: 177px;
+}
+#PASEK_TOP {
+	-webkit-transition: width 2s; /* Safari and Chrome */
+    border-radius:15px;
+    width: 780px;
+	height: 60px;
+    overflow: visible;
+    padding: 10px 23px 0px;
+    -webkit-box-shadow: 3px 3px 4px rgba(177, 171, 171, 0.56);
+    background-color:rgba(204, 204, 204, 0.22);
+
+}
+
+#MENU {
+	width: 202px;
+	float: right;
+
+}
+#VOID_MENU {
+	height: 180px;
+}
+#VOID_MENU2 {
+	height: 164px;
+}
+
+#LINK {
+	width: 202px;
+	height: 48px;
+
+}
+
+#HR {
+	width: 20px;
+	float: right;
+	overflow: hidden;
+}
+
+#TRESC {
+	padding-right: 10px;
+	width: 828px;
+	height: 495px;
+	overflow: auto;
+}
+
+#BOTTOM {
+	width: 1024px;
+	clear: both;
+	width: 100%;
+}
+#menu-ul {
+	width: 200px;
+	padding: 2px 2px 1px 2px;
+	font-weight: 200px;
+	font-size: 17px;
+	}
+#menu-ul li {
+	display: block;
+	width: 190px;
+	list-style: none;
+	margin: 2px;
+	padding: 0;
+	border-bottom: 1px solid #CEAF72;
+	border-top: 20px;
+	border-radius: 1px;
+	border-width: 1px 0 1px 0;
+	
+}
+#menu-ul a:link, #menu-ul a:visited {
+	display: block;
+	width: 190px;
+	text-decoration: none;
+	padding: 7px;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: 25px;
+	color: #0090d3;
+	border-left: 3px solid #ffffff;
+	border-right: 3px solid #ffffff;
+	border-radius: 5px;
+	}	
+#menu-ul a:hover {
+	display: block;
+	width: 190px;
+	padding-right: 5px;
+	border-right: 5px solid #0090d3;
+	border-radius: 4px;
+	color: #bbb;
+	transition:  .1s ease-out;
+	transition: color .9s ease-out .3s;
+}
+#pliki-ul {
+	
+	padding: 2px 2px 1px 2px;
+	font-weight: 100px;
+	font-size: 11px;
+	}
+#pliki-ul li {
+	display: block;
+	
+	list-style: none;
+	margin: 2px;
+	padding: 0;
+	border-width: 1px 0 1px 0;
+	
+}
+#pliki-ul a:link, #pliki-ul a:visited {
+	display: block;
+
+	text-decoration: none;
+	padding: 7px;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 25px;
+	color: #0090d3;
+	border-left: 3px solid #ffffff;
+	border-right: 3px solid #ffffff;
+	border-radius: 5px;
+	}	
+#pliki-ul a:hover {
+	display: block;
+	color: #bbb;
+	transition:  .1s ease-out;
+	transition: color .9s ease-out .3s;
+}
+#menu-li {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #CEAF72;
+	border-radius: 1px;
+}
+
+img.dokument {
+	height: 72px;
+    width: 72px;
+    float: left;
+    clear:left;
+}
+.verticaltext{
+	font: bold 13px Courier, monospace;
+	position: absolute;
+	right: 3px;
+	top: 20px;
+	width: 15px;
+	writing-mode: tb-rl;
+}
+table.dot {
+	border-width: 1px;
+	border-spacing: 0px;
+    border-collapse: collapse;
+	border-style: dotted;
+	border-color: #000000;
+	}
+table.imienazw {
+   font-size: 12px;
+   font-family:  tahoma;
+   font-weight: 700;
+   border: none;
+   }
+td.dot {
+   text-align: left;
+   font-size: 11px;
+   font-family: tahoma;
+   border: 1px solid black;
+   border-style: dotted;
+   }
+td.dot_def {
+   text-align: left;
+   font-size: 10px;
+   font-family: tahoma;
+   border: 1px solid black;
+   border-style: dotted;
+   background-color: #fdb675;
+   }
+tr.topdot {
+   text-align: left;
+   font-size: 17px;
+   font-family: tahoma;
+   border: 1px solid black;
+   border-style: dotted;
+   }
+td.topdot {
+   text-align: left;
+   font-size: 12px;
+   font-family: tahoma;
+   #border: 1px solid black;
+   #border-style: dotted;
+ }
+TR.wn_top {
+	font-family: tahoma;
+    font-weight: bold;
+	font-size: 14px;
+}
+.dymek {
+		position:absolute;display:none;left:10px;top:20px;
+		border:1px double orange;background-color:white;
+		padding:6px;font:normal 12px serif;
+}
+.clear {
+	clear: left;
+}
+a.nag, a:visited.nag, a:active.nag {
+	text-decoration: none;
+    font-size: 14px;
+    font-family: tahoma;
+    font-weight: bold;
+    color: rgb(64,163,219);
+}
+tr.hov:hover {
+	background-color: rgba(64,163,219,0.3);
+}
